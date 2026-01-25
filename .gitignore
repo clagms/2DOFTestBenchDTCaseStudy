@@ -1,0 +1,8 @@
+.venv
+influxdb/influxdb/
+influxdb/engine/
+influxdb/influxd.bolt
+startup.conf
+**/__pycache__/
+*.pyc
+*.log

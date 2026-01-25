@@ -1,0 +1,37 @@
+name: testbench_digital_twin
+
+services:
+  rabbitmq:
+    container_name: rabbitmq-server
+    image: rabbitmq
+    build : rabbitmq/
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 1883:1883
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10       # give the broker more chances to finish booting
+      start_period: 10s # wait longer before first health check to avoid false negatives
+
+  influxdb:
+    container_name: influxdb-server
+    image: influxdb
+    build : influxdb/
+    ports:
+      - 8086:8086
+      - 8088:8088
+    volumes:
+      - "./influxdb/:/var/lib/influxdb/"
+
+  mockupbin:
+    container_name: mockupbin-server
+    image: mockupbin
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    depends_on:
+      rabbitmq:
+        condition: service_healthy

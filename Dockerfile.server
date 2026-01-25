@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY TestBenchAUCAE2DofRMQServer .
+COPY TestBenchAUCAE2Dof_vars.pkl logging.conf . 
+COPY startup_mockup.conf startup.conf
+ENTRYPOINT ["./TestBenchAUCAE2DofRMQServer"]
+# ENTRYPOINT ["bash"]
