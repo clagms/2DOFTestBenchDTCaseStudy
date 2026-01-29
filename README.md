@@ -78,7 +78,7 @@ This repository contains the Digital Twin Framework for the 2DoF TestBench owned
     python -m influxdb.test_influxdb
     ```
     
-    If you get an **unauthorized access error**, you probably need to update the access `token` in the [startup.conf](startup.conf)generated from the [management page](http://localhost:8086/). Follow [this guide](https://docs.influxdata.com/influxdb/cloud/admintokens/create-token/), and use the credentials, org, and bucket as in the [startup.conf](startup.conf).
+    If you get an **unauthorized access error**, you probably need to update the access `token` in the [startup.conf](startup.conf), generated from the [management page](http://localhost:8086/). Follow [this guide](https://docs.influxdata.com/influxdb/cloud/admintokens/create-token/), and use the credentials, org, and bucket as in the [startup.conf](startup.conf).
     
     After running the script you should see some data generated in the influxdb page, and the following output:
     
