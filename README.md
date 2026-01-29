@@ -19,7 +19,7 @@ This repository contains the Digital Twin Framework for the 2DoF TestBench owned
 - Docker Compose (`docker-compose.yml`) brings up 3 **core services**:
   - RabbitMQ (AMQP + MQTT + Management UI)
   - InfluxDB 2.x (time-series database)
-  - The testbench server, that can respond to comments to move the actuators and get sensor readings.
+  - The testbench server, that can respond to commands to move the actuators and get sensor readings.
 - Python smoke tests:
   - `rabbitmq/test_rabbitmq.py` publishes and retrieves a message via a local queue.
   - `influxdb/test_influxdb.py` writes 10 points and queries them back using Flux.
